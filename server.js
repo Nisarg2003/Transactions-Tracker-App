@@ -30,10 +30,10 @@ app.use(cors())
 //Api
 app.use("/api/v1", userRoutes);
 
-//rest api
-app.get('/',(req,res)=>{
-    res.send("<h1>Welcome to Expense-Management-App</h1>")
-})
+// //rest api
+// app.get('/',(req,res)=>{
+//     res.send("<h1>Welcome to Expense-Management-App</h1>")
+// })
 
 //static Files
 app.use(express.static(path.join(__dirname, './client/build')));
