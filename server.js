@@ -6,12 +6,17 @@ import connectDb from "./config/connectDb.js";
 import userRoutes from "./routes/userRoutes.js"
 import cors from 'cors'
 import path from 'path'
+import { fileURLToPath } from 'url'
 
 // config dot env file
 dotenv.config();
 
 //config connectDb
 connectDb();
+
+//esmodule fix
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 // Rest Object
 const app = express()
@@ -25,10 +30,10 @@ app.use(cors())
 //Api
 app.use("/api/v1", userRoutes);
 
-//rest api
-app.get('/',(req,res)=>{
-    res.send("<h1>Welcome to Expense-Management-App</h1>")
-})
+// //rest api
+// app.get('/',(req,res)=>{
+//     res.send("<h1>Welcome to Expense-Management-App</h1>")
+// })
 
 //static Files
 app.use(express.static(path.join(__dirname, './client/build')));
